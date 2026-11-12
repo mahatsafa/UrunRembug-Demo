@@ -1,0 +1,43 @@
+@import 'tailwindcss';
+
+/* Warna brand UrunRembug. Dipakai di Tailwind sebagai bg-teal, text-amber, dst. */
+@theme {
+  --color-teal: #007a75;
+  --color-teal-dark: #005e5a;
+  --color-teal-soft: #e6f4f3;
+  --color-amber: #fea11d;
+  --color-amber-dark: #d9840a;
+  --color-amber-soft: #fff4e2;
+  --color-ink: #1d2b2a;
+  --color-muted: #64716f;
+  --color-line: #e3e9e8;
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+html,
+body {
+  background: #eef3f2;
+  color: var(--color-ink);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Kilatan singkat saat angka KPI berubah, supaya terlihat jelas di video. */
+@keyframes kilat {
+  0% { box-shadow: 0 0 0 0 rgba(254, 161, 29, 0.9); background-color: #fff4e2; }
+  100% { box-shadow: 0 0 0 14px rgba(254, 161, 29, 0); background-color: #ffffff; }
+}
+.kilat { animation: kilat 1.2s ease-out; }
+
+@keyframes masuk {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.masuk { animation: masuk 0.4s ease-out; }
+
+@keyframes putar { to { transform: rotate(360deg); } }
+.putar-lambat { animation: putar 18s linear infinite; transform-origin: center; }
+
+@media print {
+  .no-print { display: none !important; }
+  html, body { background: #fff; }
+}
